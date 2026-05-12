@@ -51,15 +51,16 @@ public class UserInterface {
         }
     }
 
-    private void displayVehicles(List<Vehicle> vehicles) {
-        if (vehicles != null) {
-            for (Vehicle vehicle : vehicles) {
-                System.out.println(vehicle);
-            }
-        }
-    }
+    public void processGetByPriceRequest() {
+        System.out.print("Please Enter a Min Price: ");
+        double minPrice = scanner.nextDouble();
+        System.out.print("Please Enter a Max Price: ");
+        double maxPrice = scanner.nextDouble();
+        scanner.nextLine();
 
-    public void processGetByPriceRequest() {}
+        List<Vehicle> vehicles = dealership.getVehiclesByPrice(minPrice, maxPrice);
+        displayVehicles(vehicles);
+    }
 
     public void processGetByMakeModelRequest() {}
 
@@ -82,4 +83,12 @@ public class UserInterface {
     public void processAddVehicleRequest() {}
 
     public void processRemoveVehicleRequest() {}
+
+    private void displayVehicles(List<Vehicle> vehicles) {
+        if (vehicles != null) {
+            for (Vehicle vehicle : vehicles) {
+                System.out.println(vehicle);
+            }
+        }
+    }
 }
