@@ -9,16 +9,21 @@ import java.io.IOException;
 public class DealershipFileManager {
     private static final String FILE_NAME = "dealership.csv";
 
-    public Dealership getDealership(String fileName) {
+    /**
+     * Reads inventory.csv and populates the inventory with a list of Vehicles
+     *
+     * @return A dealership object populated with vehicles
+     * */
+    public Dealership getDealership() {
         Dealership dealership = null;
 
         try {
-            File file = new File(fileName);
+            File file = new File(FILE_NAME);
 
-            if (!file.exists()){
+            if (!file.exists()) {
                 file.createNewFile();
             }
-            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            BufferedReader br = new BufferedReader(new FileReader(FILE_NAME));
             String line;
 
             String firstLine = br.readLine();
