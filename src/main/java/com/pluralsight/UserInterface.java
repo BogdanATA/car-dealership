@@ -146,7 +146,32 @@ public class UserInterface {
         System.out.println("Vehicle added successfully.");
     }
 
-    public void processRemoveVehicleRequest() {}
+    public void processRemoveVehicleRequest() {
+        System.out.println("Please Fill Out All Required Fields");
+        System.out.print("VIN: ");
+        int vin = scanner.nextInt();
+        System.out.print("Year: ");
+        int year = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Make: ");
+        String make = scanner.nextLine();
+        System.out.print("Model: ");
+        String model = scanner.nextLine();
+        System.out.print("Vehicle Type: ");
+        String vehicleType = scanner.nextLine();
+        System.out.print("Color: ");
+        String color = scanner.nextLine();
+        System.out.print("Mileage: ");
+        int odometer = scanner.nextInt();
+        System.out.print("Price: ");
+        double price = scanner.nextDouble();
+        scanner.nextLine();
+
+        Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+        dealership.removeVehicle(vehicle);DealershipFileManager manager = new DealershipFileManager();
+        manager.saveDealership(dealership);
+        System.out.println("Vehicle removed successfully.");
+    }
 
     private void displayVehicles(List<Vehicle> vehicles) {
         if (vehicles != null) {
