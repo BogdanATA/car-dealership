@@ -62,15 +62,53 @@ public class UserInterface {
         displayVehicles(vehicles);
     }
 
-    public void processGetByMakeModelRequest() {}
+    public void processGetByMakeModelRequest() {
+        System.out.print("Please Enter a Make: ");
+        String make = scanner.nextLine();
+        System.out.print("Please Enter a Model: ");
+        String model = scanner.nextLine();
 
-    public void processGetByYearRequest() {}
+        List<Vehicle> vehicles = dealership.getVehiclesByMakeModel(make, model);
+        displayVehicles(vehicles);
+    }
 
-    public void processGetByColorRequest() {}
+    public void processGetByYearRequest() {
+        System.out.print("Please Enter a Min Year: ");
+        int minYear = scanner.nextInt();
+        System.out.print("Please Enter a Max Year: ");
+        int maxYear = scanner.nextInt();
+        scanner.nextLine();
 
-    public void processGetByMileageRequest() {}
+        List<Vehicle> vehicles = dealership.getVehiclesByYear(minYear, maxYear);
+        displayVehicles(vehicles);
+    }
 
-    public void processGetByVehicleTypeRequest() {}
+    public void processGetByColorRequest() {
+        System.out.print("Please Enter a Color: ");
+        String color = scanner.nextLine();
+
+        List<Vehicle> vehicles = dealership.getVehiclesByColor(color);
+        displayVehicles(vehicles);
+    }
+
+    public void processGetByMileageRequest() {
+        System.out.print("Please Enter a Min Mileage: ");
+        int minMileage = scanner.nextInt();
+        System.out.print("Please Enter a Max Mileage: ");
+        int maxMileage = scanner.nextInt();
+        scanner.nextLine();
+
+        List<Vehicle> vehicles = dealership.getVehiclesByMileage(minMileage, maxMileage);
+        displayVehicles(vehicles);
+    }
+
+    public void processGetByVehicleTypeRequest() {
+        System.out.print("Please Enter a Vehicle Type: ");
+        String vehicleType = scanner.nextLine();
+
+        List<Vehicle> vehicles = dealership.getVehiclesByType(vehicleType);
+        displayVehicles(vehicles);
+    }
 
     /**
      * Get list of all vehicles from dealership and print them
