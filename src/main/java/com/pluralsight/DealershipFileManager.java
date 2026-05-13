@@ -2,8 +2,10 @@ package com.pluralsight;
 
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class DealershipFileManager {
@@ -67,6 +69,23 @@ public class DealershipFileManager {
     }
 
     public void saveDealership(Dealership dealership) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME));
 
+            bw.write(dealership.getName() + "|" + dealership.getAddress() + "|" + dealership.getPhone());
+            bw.newLine();
+
+            for (Vehicle vehicle : dealership.getAllVehicles()) {
+                bw.write(vehicle.getVin() + "|" + vehicle.getYear() +
+                        "|" + vehicle.getMake() + "|" + vehicle.getModel() +
+                        "|" + vehicle.getVehicleType() + "|" + vehicle.getColor() +
+                        "|" + vehicle.getOdometer() + "|" + vehicle.getPrice());
+                bw.newLine();
+            }
+
+            bw.close();
+        } catch (IOException e) {
+            System.err.println("Error writing file");
+        }
     }
 }
