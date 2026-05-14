@@ -136,7 +136,7 @@ public class UserInterface {
     private void saveAndConfirm(String message) {
         DealershipFileManager manager = new DealershipFileManager();
         manager.saveDealership(dealership);
-        System.out.println("Vehicle removed successfully.");
+        System.out.println(message);
     }
 
     private String readString(Scanner scanner, String prompt) {
@@ -166,9 +166,16 @@ public class UserInterface {
 
     private void displayVehicles(List<Vehicle> vehicles) {
         if (vehicles != null) {
+            printHeader();
             for (Vehicle vehicle : vehicles) {
                 System.out.println(vehicle);
             }
         }
+    }
+
+    private void printHeader() {
+        System.out.println(String.format("%-10s %-6s %-12s %-12s %-12s %-10s %-12s %s",
+                "VIN", "Year", "Make", "Model", "Type", "Color", "Mileage", "Price"));
+        System.out.println("-".repeat(94));
     }
 }
