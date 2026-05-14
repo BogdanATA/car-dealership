@@ -174,8 +174,8 @@ public class UserInterface {
     }
 
     private void printHeader() {
-        System.out.println(String.format("%-10s %-6s %-12s %-12s %-12s %-10s %-12s %s",
-                "VIN", "Year", "Make", "Model", "Type", "Color", "Mileage", "Price"));
+        System.out.printf("%-10s %-6s %-12s %-12s %-12s %-10s %-12s %s\n",
+                "VIN", "Year", "Make", "Model", "Type", "Color", "Mileage", "Price");
         System.out.println("-".repeat(94));
     }
 }

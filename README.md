@@ -1,4 +1,4 @@
-# Car World
+# My Dealership
 
 ## Description of the Project
 
@@ -38,11 +38,11 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 
-![Application Screenshot]()
+![car-dealership-demo.gif](car-dealership-demo.gif)
 
 ## Future Work
 
-- 
+- Include colors to make the display look nice
 
 ## Resources
 
