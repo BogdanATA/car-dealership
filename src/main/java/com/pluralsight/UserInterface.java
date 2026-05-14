@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class UserInterface {
     private Dealership dealership;
-    Scanner scanner = new Scanner(System.in);
 
     public UserInterface() {}
 
@@ -16,6 +15,7 @@ public class UserInterface {
 
     public void display() {
         init();
+        Scanner scanner = new Scanner(System.in);
 
         int command = -1;
         while (command != 99) {
@@ -36,22 +36,23 @@ public class UserInterface {
             scanner.nextLine();
 
             switch (command) {
-                case 1 -> processGetByPriceRequest();
-                case 2 -> processGetByMakeModelRequest();
-                case 3 -> processGetByYearRequest();
-                case 4 -> processGetByColorRequest();
-                case 5 -> processGetByMileageRequest();
-                case 6 -> processGetByVehicleTypeRequest();
+                case 1 -> processGetByPriceRequest(scanner);
+                case 2 -> processGetByMakeModelRequest(scanner);
+                case 3 -> processGetByYearRequest(scanner);
+                case 4 -> processGetByColorRequest(scanner);
+                case 5 -> processGetByMileageRequest(scanner);
+                case 6 -> processGetByVehicleTypeRequest(scanner);
                 case 7 -> processGetAllVehiclesRequest();
-                case 8 -> processAddVehicleRequest();
-                case 9 -> processRemoveVehicleRequest();
+                case 8 -> processAddVehicleRequest(scanner);
+                case 9 -> processRemoveVehicleRequest(scanner);
                 case 99 -> System.out.println("Goodbye!");
                 default -> System.out.println("Invalid command.");
             }
         }
+        scanner.close();
     }
 
-    public void processGetByPriceRequest() {
+    public void processGetByPriceRequest(Scanner scanner) {
         System.out.print("Please Enter a Min Price: ");
         double minPrice = scanner.nextDouble();
         System.out.print("Please Enter a Max Price: ");
@@ -62,7 +63,7 @@ public class UserInterface {
         displayVehicles(vehicles);
     }
 
-    public void processGetByMakeModelRequest() {
+    public void processGetByMakeModelRequest(Scanner scanner) {
         System.out.print("Please Enter a Make: ");
         String make = scanner.nextLine();
         System.out.print("Please Enter a Model: ");
@@ -72,7 +73,7 @@ public class UserInterface {
         displayVehicles(vehicles);
     }
 
-    public void processGetByYearRequest() {
+    public void processGetByYearRequest(Scanner scanner) {
         System.out.print("Please Enter a Min Year: ");
         int minYear = scanner.nextInt();
         System.out.print("Please Enter a Max Year: ");
@@ -83,7 +84,7 @@ public class UserInterface {
         displayVehicles(vehicles);
     }
 
-    public void processGetByColorRequest() {
+    public void processGetByColorRequest(Scanner scanner) {
         System.out.print("Please Enter a Color: ");
         String color = scanner.nextLine();
 
@@ -91,7 +92,7 @@ public class UserInterface {
         displayVehicles(vehicles);
     }
 
-    public void processGetByMileageRequest() {
+    public void processGetByMileageRequest(Scanner scanner) {
         System.out.print("Please Enter a Min Mileage: ");
         int minMileage = scanner.nextInt();
         System.out.print("Please Enter a Max Mileage: ");
@@ -102,7 +103,7 @@ public class UserInterface {
         displayVehicles(vehicles);
     }
 
-    public void processGetByVehicleTypeRequest() {
+    public void processGetByVehicleTypeRequest(Scanner scanner) {
         System.out.print("Please Enter a Vehicle Type: ");
         String vehicleType = scanner.nextLine();
 
@@ -118,7 +119,7 @@ public class UserInterface {
         displayVehicles(vehicles);
     }
 
-    public void processAddVehicleRequest() {
+    public void processAddVehicleRequest(Scanner scanner) {
         System.out.println("Please Fill Out All Required Fields");
         System.out.print("VIN: ");
         int vin = scanner.nextInt();
@@ -146,7 +147,7 @@ public class UserInterface {
         System.out.println("Vehicle added successfully.");
     }
 
-    public void processRemoveVehicleRequest() {
+    public void processRemoveVehicleRequest(Scanner scanner) {
         System.out.println("Please Fill Out All Required Fields");
         System.out.print("VIN: ");
         int vin = scanner.nextInt();
