@@ -40,8 +40,6 @@ public class Dealership {
         this.phone = phone;
     }
 
-
-
     public List<Vehicle> getVehiclesByPrice(double min,double max) {
         List<Vehicle> matchingVehicle = new ArrayList<>();
 
@@ -117,11 +115,11 @@ public class Dealership {
     }
 
     public void removeVehicle(Vehicle vehicle) {
-        for (int i = 0; i < inventory.size(); i++) {
-            if (inventory.get(i).getVin() == vehicle.getVin()) {
-                inventory.remove(i);
-                break;
+        for (Vehicle vehicles : inventory) {
+            if (vehicles.getVin() == vehicle.getVin()) {
+                inventory.remove(vehicle);
             }
         }
+
     }
 }
